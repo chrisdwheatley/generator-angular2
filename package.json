@@ -1,7 +1,7 @@
 {
   "name": "generator-angular2",
   "version": "0.0.0",
-  "description": "",
+  "description": "angular2 yeoman generator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,8 @@
   },
   "keywords": [
     "yeoman",
+    "yeoman-generator",
+    "generator",
     "angularjs",
     "angular",
     "angularjs2",
@@ -23,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/swirlycheetah/generator-angular2/issues"
   },
-  "homepage": "https://github.com/swirlycheetah/generator-angular2"
+  "homepage": "https://github.com/swirlycheetah/generator-angular2",
+  "dependencies": {
+    "yeoman-generator": "^0.18.10"
+  }
 }
