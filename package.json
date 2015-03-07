@@ -1,32 +1,38 @@
 {
   "name": "generator-angular2",
   "version": "0.0.0",
-  "description": "angular2 yeoman generator",
-  "main": "index.js",
+  "description": "Angular2 Yeoman Generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "https://swirlycheetah/generator-angular2",
+  "author": "Chris Wheatley <chriswheatley87@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/swirlycheetah/generator-angular2/issues"
+  },
+  "homepage": "https://github.com/swirlycheetah/generator-angular2",
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/swirlycheetah/generator-angular2.git"
-  },
+  "files": [
+    "app"
+  ],
   "keywords": [
-    "yeoman",
     "yeoman-generator",
-    "generator",
     "angularjs",
     "angular",
     "angularjs2",
     "angular2",
     "es6"
   ],
-  "author": "Chris Wheatley <chriswheatley87@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/swirlycheetah/generator-angular2/issues"
-  },
-  "homepage": "https://github.com/swirlycheetah/generator-angular2",
   "dependencies": {
-    "yeoman-generator": "^0.18.10"
+    "yeoman-generator": "^0.18.9",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
   }
 }
