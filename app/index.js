@@ -11,9 +11,9 @@ module.exports = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    // Have Yeoman greet the user.
+    // Yeoman greeting
     this.log(yosay(
-      'Welcome to the lovely ' + chalk.red('Angular2') + ' generator!'
+      'Yo! I\'m here to help build your ' + chalk.red('Angular2') + ' application.'
     ));
 
     var prompts = [{
