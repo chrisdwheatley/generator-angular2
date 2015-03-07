@@ -5,7 +5,7 @@ var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
-    this.pkg = require('../package.json');
+    // this.npmInstall(['angular2'], { 'saveDev': true });
   },
 
   prompting: function () {
@@ -26,7 +26,11 @@ module.exports = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.transpiler = props.transpiler;
-
+      if (this.transpiler === 'Babel') {
+        this.npmInstall(['babel'], { 'saveDev': true });
+      } else if (this.transpiler === 'Traceur') {
+        this.npmInstall(['traceur'], { 'saveDev': true });
+      }
       done();
     }.bind(this));
   },
@@ -49,6 +53,7 @@ module.exports = yeoman.generators.Base.extend({
 
   install: function () {
     this.installDependencies({
+      bower: false,
       skipInstall: this.options['skip-install']
     });
   }
