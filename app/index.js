@@ -17,14 +17,15 @@ module.exports = yeoman.generators.Base.extend({
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      type: 'list',
+      name: 'transpiler',
+      message: 'Which transpiler would you like to use?',
+      default: 'Babel',
+      choices: ['Babel', 'Traceur']
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.transpiler = props.transpiler;
 
       done();
     }.bind(this));
