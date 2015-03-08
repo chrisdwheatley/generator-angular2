@@ -5,7 +5,7 @@ var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
-    // this.npmInstall(['angular2'], { 'saveDev': true });
+    this.npmInstall(['angular2'], { 'saveDev': true });
   },
 
   prompting: function () {
@@ -13,24 +13,28 @@ module.exports = yeoman.generators.Base.extend({
 
     // Yeoman greeting
     this.log(yosay(
-      'Yo! I\'m here to help build your ' + chalk.red('Angular2') + ' application.'
+      'Yo! I\'m here to help build your '+
+      chalk.red('Angular2') +
+      ' application.'
     ));
 
     var prompts = [{
       type: 'list',
       name: 'transpiler',
-      message: 'Which transpiler would you like to use?',
+      message: 'Which es6 to es5 transpiler would you like to use?',
       default: 'Babel',
       choices: ['Babel', 'Traceur']
     }];
 
     this.prompt(prompts, function (props) {
       this.transpiler = props.transpiler;
+
       if (this.transpiler === 'Babel') {
         this.npmInstall(['babel'], { 'saveDev': true });
       } else if (this.transpiler === 'Traceur') {
         this.npmInstall(['traceur'], { 'saveDev': true });
       }
+
       done();
     }.bind(this));
   },
@@ -53,8 +57,7 @@ module.exports = yeoman.generators.Base.extend({
 
   install: function () {
     this.installDependencies({
-      bower: false,
-      skipInstall: this.options['skip-install']
+      bower: false
     });
   }
 });
