@@ -4,9 +4,12 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
-  initializing: function () {
-    this.npmInstall(['angular2'], { 'saveDev': true });
-  },
+  constructor: function () {
+    yeoman.generators.Base.apply(this, arguments);
+
+    // add option to skip install
+    this.option('skip-install');
+  },  
 
   prompting: function () {
     var done = this.async();
@@ -26,14 +29,8 @@ module.exports = yeoman.generators.Base.extend({
       choices: ['Babel', 'Traceur']
     }];
 
-    this.prompt(prompts, function (props) {
-      this.transpiler = props.transpiler;
-
-      if (this.transpiler === 'Babel') {
-        this.npmInstall(['babel'], { 'saveDev': true });
-      } else if (this.transpiler === 'Traceur') {
-        this.npmInstall(['traceur'], { 'saveDev': true });
-      }
+    this.prompt(prompts, function (response) {
+      this.transpiler = response.transpiler.toLowerCase();
 
       done();
     }.bind(this));
@@ -41,10 +38,7 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
+      this.copy('_package.json', 'package.json');
     },
 
     projectfiles: function () {
@@ -57,6 +51,7 @@ module.exports = yeoman.generators.Base.extend({
 
   install: function () {
     this.installDependencies({
+      skipInstall: this.options['skip-install'],
       bower: false
     });
   }
