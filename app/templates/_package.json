@@ -3,5 +3,8 @@
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
+    "angular2": "^2",<% if (transpiler === 'babel') { %>
+    "babel": "^4"<% } else { %>
+    "traceur": "^0"<% } %>
   }
 }
