@@ -9,8 +9,8 @@ module.exports = yeoman.generators.Base.extend({
 
     // add option to skip install
     this.option('skip-install');
-  },  
-
+  },
+  
   prompting: function () {
     var done = this.async();
 
@@ -21,13 +21,15 @@ module.exports = yeoman.generators.Base.extend({
       ' application.'
     ));
 
-    var prompts = [{
-      type: 'list',
-      name: 'transpiler',
-      message: 'Which es6 to es5 transpiler would you like to use?',
-      default: 'Babel',
-      choices: ['Babel', 'Traceur']
-    }];
+    var prompts = [
+      {
+        type: 'list',
+        name: 'transpiler',
+        message: 'Which es6 to es5 transpiler would you like to use?',
+        default: 'Babel',
+        choices: ['Babel', 'Traceur']
+      }
+    ];
 
     this.prompt(prompts, function (response) {
       this.transpiler = response.transpiler.toLowerCase();
@@ -39,6 +41,9 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       this.copy('_package.json', 'package.json');
+      this.mkdir('src');
+      this.copy('src/_index.es6', 'src/index.es6');
+      this.copy('src/_index.html', 'src/index.html');
     },
 
     projectfiles: function () {

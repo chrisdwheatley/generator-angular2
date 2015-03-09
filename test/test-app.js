@@ -11,7 +11,7 @@ describe('angular2:app', function () {
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
       .withPrompt({
-        someOption: true
+        transpiler: 'default'
       })
       .on('end', done);
   });
@@ -19,7 +19,9 @@ describe('angular2:app', function () {
   it('creates files', function () {
     assert.file([
       'package.json',
-      '.editorconfig'
+      '.editorconfig',
+      'src/index.es6',
+      'src/index.html'
     ]);
   });
 });
