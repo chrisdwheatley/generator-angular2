@@ -4,7 +4,7 @@
   "dependencies": {},
   "devDependencies": {
     "angular2": "^2",<% if (transpiler === 'babel') { %>
-    "babel": "^4"<% } else { %>
-    "traceur": "^0"<% } %>
+    "<%= transpiler %>": "^4"<% } else if (transpiler === 'traceur') { %>
+    "<%= transpiler %>": "^0"<% } %>
   }
 }
