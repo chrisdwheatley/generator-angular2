@@ -20,7 +20,8 @@ describe('angular2:app', function () {
     assert.file([
       'package.json',
       '.editorconfig',
-      'src/index.es6',
+      'gulpfile.js',
+      'src/index.js',
       'src/index.html'
     ]);
   });

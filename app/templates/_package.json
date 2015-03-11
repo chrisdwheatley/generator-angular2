@@ -5,6 +5,7 @@
   "devDependencies": {
     "angular2": "^2",<% if (transpiler === 'babel') { %>
     "<%= transpiler %>": "^4"<% } else if (transpiler === 'traceur') { %>
-    "<%= transpiler %>": "^0"<% } %>
+    "<%= transpiler %>": "^0",
+    "gulp-traceur": "^0.17.0"<% } %>
   }
 }
