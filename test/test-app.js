@@ -22,7 +22,8 @@ describe('angular2:app', function () {
       '.editorconfig',
       'gulpfile.js',
       'src/index.js',
-      'src/index.html'
+      'src/index.html',
+      'src/generator-angular2.html'
     ]);
   });
 });
