@@ -1,8 +1,19 @@
 var gulp = require('gulp');
-var traceur = require('gulp-traceur');
+var shell = require('gulp-shell');
+var webserver = require('gulp-webserver');
 
-gulp.task('default', function () {
-  return gulp.src('src/index.js')
-    .pipe(traceur())
-     .pipe(gulp.dest('dist'));
+gulp.task('default', shell.task([
+  'rm -rf src/lib',
+  'git clone https://github.com/angular/quickstart.git src/lib',
+  'cd src/lib',
+  'rm -rf .git',
+  'cd ../..'
+]));
+
+gulp.task('serve', function() {
+  gulp.src('src')
+    .pipe(webserver({
+      host: '0.0.0.0',
+      open: true
+    }));
 });
