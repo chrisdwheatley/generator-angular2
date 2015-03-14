@@ -12,30 +12,13 @@ module.exports = yeoman.generators.Base.extend({
   },
   
   prompting: function () {
-    var done = this.async();
-
     // Yeoman greeting
     this.log(yosay(
       'Yo! I\'m here to help build your '+
-      chalk.red('Angular2') +
+      chalk.bold.yellow('Angular2') +
       ' application.'
     ));
 
-    var prompts = [
-      {
-        type: 'list',
-        name: 'transpiler',
-        message: 'Which es6 to es5 transpiler would you like to use?',
-        default: 'Babel',
-        choices: ['Babel', 'Traceur']
-      }
-    ];
-
-    this.prompt(prompts, function (response) {
-      this.transpiler = response.transpiler.toLowerCase();
-
-      done();
-    }.bind(this));
   },
 
   writing: {
@@ -45,6 +28,7 @@ module.exports = yeoman.generators.Base.extend({
       this.mkdir('src');
       this.copy('src/_index.js', 'src/index.js');
       this.copy('src/_index.html', 'src/index.html');
+      this.copy('src/_generator-angular2.html', 'src/generator-angular2.html');
     },
 
     projectfiles: function () {
@@ -58,7 +42,23 @@ module.exports = yeoman.generators.Base.extend({
   install: function () {
     this.installDependencies({
       skipInstall: this.options['skip-install'],
-      bower: false
+      bower: false,
+      callback: function() {
+        this.emit('dependenciesInstalled');
+      }.bind(this)
     });
+
+    this.on('dependenciesInstalled', function() {
+      this.spawnCommand('gulp').on('close', function () {
+        this.log('');
+        this.log('');
+        this.log('Setup complete, run ' +
+                 chalk.bold.yellow('gulp serve') +
+                 ' to start serving the application.');
+        this.log('');
+        this.log('');
+      }.bind(this));
+    }.bind(this));
+
   }
 });
