@@ -1,14 +1,17 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var path = require('path');
 var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
   constructor: function () {
     yeoman.generators.Base.apply(this, arguments);
-
     // add option to skip install
     this.option('skip-install');
+    this.argument('appname', { type: String, required: false });
+    this.appname = this.appname || path.basename(process.cwd());
+    this.appname = this._.camelize(this._.slugify(this._.humanize(this.appname)));
   },
   
   prompting: function () {
@@ -18,7 +21,6 @@ module.exports = yeoman.generators.Base.extend({
       chalk.bold.yellow('Angular2') +
       ' application.'
     ));
-
   },
 
   writing: {
