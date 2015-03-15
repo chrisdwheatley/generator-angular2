@@ -26,6 +26,7 @@
     "angular2",
     "es6"
   ],
+  "preferGlobal": true,
   "dependencies": {
     "yeoman-generator": "^0.18.9",
     "chalk": "^1.0.0",
