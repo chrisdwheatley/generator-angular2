@@ -2,14 +2,14 @@ import {Component, Template, bootstrap} from 'angular2/angular2';
 import {bind} from 'angular2/di';
 
 @Component({
-  selector: 'generator-angular2'
+  selector: '<%= _.slugify(appname) %>'
 })
 
 @Template({
-  url: 'generator-angular2.html'
+  url: '<%= _.slugify(appname) %>.html'
 })
 
-class GeneratorAngular2 {
+class <%= _.classify(appname) %> {
 
   constructor() {
     console.log('component mounted');
@@ -18,5 +18,5 @@ class GeneratorAngular2 {
 }
 
 export function main() {
-  bootstrap(GeneratorAngular2);
+  bootstrap(<%= _.classify(appname) %>);
 }

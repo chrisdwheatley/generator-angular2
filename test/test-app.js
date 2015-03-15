@@ -10,9 +10,7 @@ describe('angular2:app', function () {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
-      .withPrompt({
-        transpiler: 'default'
-      })
+      .withArguments('fake-app-name')
       .on('end', done);
   });
 
@@ -23,7 +21,7 @@ describe('angular2:app', function () {
       'gulpfile.js',
       'src/index.js',
       'src/index.html',
-      'src/generator-angular2.html'
+      'src/fake-app-name.html'
     ]);
   });
 });

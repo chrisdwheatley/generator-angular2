@@ -11,7 +11,6 @@ module.exports = yeoman.generators.Base.extend({
     this.option('skip-install');
     this.argument('appname', { type: String, required: false });
     this.appname = this.appname || path.basename(process.cwd());
-    this.appname = this._.camelize(this._.slugify(this._.humanize(this.appname)));
   },
   
   prompting: function () {
@@ -25,12 +24,13 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
+      this.basicTemplate = 'src/' + this._.slugify(this.appname) + '.html';
       this.copy('_package.json', 'package.json');
       this.copy('_gulpfile.js', 'gulpfile.js');
       this.mkdir('src');
       this.copy('src/_index.js', 'src/index.js');
       this.copy('src/_index.html', 'src/index.html');
-      this.copy('src/_generator-angular2.html', 'src/generator-angular2.html');
+      this.copy('src/_basic-template.html', this.basicTemplate);
     },
 
     projectfiles: function () {
