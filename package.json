@@ -16,11 +16,10 @@
   "scripts": {
     "test": "mocha"
   },
-  "files": [
-    "app"
-  ],
   "keywords": [
     "yeoman-generator",
+    "angular yeoman",
+    "angular2 yeoman",
     "angularjs",
     "angular",
     "angularjs2",
