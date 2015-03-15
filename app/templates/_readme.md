@@ -1,0 +1,1 @@
+# <%= _.capitalize(_.humanize(appname)) %>

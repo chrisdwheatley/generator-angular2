@@ -27,6 +27,7 @@ module.exports = yeoman.generators.Base.extend({
       this.basicTemplate = 'src/' + this._.slugify(this.appname) + '.html';
       this.copy('_package.json', 'package.json');
       this.copy('_gulpfile.js', 'gulpfile.js');
+      this.copy('_readme.md', 'readme.md');
       this.mkdir('src');
       this.copy('src/_index.js', 'src/index.js');
       this.copy('src/_index.html', 'src/index.html');
