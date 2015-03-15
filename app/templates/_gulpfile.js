@@ -13,7 +13,6 @@ gulp.task('default', shell.task([
 gulp.task('serve', function() {
   gulp.src('src')
     .pipe(webserver({
-      host: '0.0.0.0',
       open: true
     }));
 });
