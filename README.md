@@ -1,47 +1,35 @@
-# generator-angular2 [![Build Status](https://secure.travis-ci.org/swirlycheetah/generator-angular2.png?branch=master)](https://travis-ci.org/swirlycheetah/generator-angular2)
+# Generator Angular2 [![Build Status](https://secure.travis-ci.org/swirlycheetah/generator-angular2.png?branch=master)](https://travis-ci.org/swirlycheetah/generator-angular2)
 
-> [Yeoman](http://yeoman.io) generator
+A [Yeoman](http://yeoman.io) Generator to aid in bootstrapping an Angular2 application.
 
+Note: This generator is in a very early alpha state and is likely to change rapidly as Angular2 progresses. Currently it provides a quick and easy way to play around with Angular2 and not much more. A lot of the setup has been borrowed from [ng2do](https://github.com/davideast/ng2do) by [David East](https://twitter.com/_davideast).
 
-## Getting Started
+### Getting Started
 
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
+Install both [Yeoman](http://yeoman.io) and this generator globally.
 
 ```bash
-npm install -g yo
+npm install -g yo generator-angular2
 ```
 
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-angular2 from npm, run:
-
-```bash
-npm install -g generator-angular2
-```
-
-Finally, initiate the generator:
+In your desired project folder run the generator.
 
 ```bash
 yo angular2
 ```
 
-### Getting To Know Yeoman
+You'll be prompted to start the server once the generator has finished.
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+```bash
+gulp serve
+```
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+You'll then be able to access the application at `http://localhost:8000`. Serving the application can be configured in the `gulpfile.js` using [gulp-webserver](https://www.npmjs.com/package/gulp-webserver) options.
 
+### Developing
 
-## License
+All contibutions are more than welcome, no matter how large or small.
 
-MIT
+### License
+
+Released under the MIT license: [opensource.org/licenses/MIT](http://opensource.org/licenses/MIT)
