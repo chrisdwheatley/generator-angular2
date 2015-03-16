@@ -12,7 +12,7 @@ module.exports = yeoman.generators.Base.extend({
     this.argument('appname', { type: String, required: false });
     this.appname = this.appname || path.basename(process.cwd());
   },
-  
+
   prompting: function () {
     // Yeoman greeting
     this.log(yosay(
@@ -25,20 +25,17 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       this.basicTemplate = 'src/' + this._.slugify(this.appname) + '.html';
+
       this.copy('_package.json', 'package.json');
       this.copy('_gulpfile.js', 'gulpfile.js');
       this.copy('_readme.md', 'readme.md');
+      this.copy('_editorconfig', '.editorconfig');
+      this.copy('_gitignore', '.gitignore');
+
       this.mkdir('src');
       this.copy('src/_index.js', 'src/index.js');
       this.copy('src/_index.html', 'src/index.html');
       this.copy('src/_basic-template.html', this.basicTemplate);
-    },
-
-    projectfiles: function () {
-      this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
     }
   },
 

@@ -18,6 +18,7 @@ describe('angular2:app', function () {
     assert.file([
       'package.json',
       '.editorconfig',
+      '.gitignore',
       'readme.md',
       'gulpfile.js',
       'src/index.js',
