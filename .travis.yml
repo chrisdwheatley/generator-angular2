@@ -1,5 +1,7 @@
 sudo: false
 language: node_js
+notifications:
+  slack: swirlycheetah:riJzPdrS1HH8xiMcqXnpc1hz
 node_js:
   - 'iojs'
   - '0.12'
