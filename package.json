@@ -4,7 +4,10 @@
   "description": "Angular2 Yeoman Generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "https://swirlycheetah/generator-angular2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/swirlycheetah/generator-angular2.git"
+  },
   "author": "Chris Wheatley <chriswheatley87@gmail.com>",
   "bugs": {
     "url": "https://github.com/swirlycheetah/generator-angular2/issues"
