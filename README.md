@@ -1,6 +1,6 @@
-# Generator Angular2 [![Build Status](https://secure.travis-ci.org/swirlycheetah/generator-angular2.png?branch=master)](https://travis-ci.org/swirlycheetah/generator-angular2)
+# Generator Angular2
 
-[![Join the chat at https://gitter.im/swirlycheetah/generator-angular2](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/swirlycheetah/generator-angular2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://secure.travis-ci.org/swirlycheetah/generator-angular2.png?branch=master)](https://travis-ci.org/swirlycheetah/generator-angular2) [![Join the chat at https://gitter.im/swirlycheetah/generator-angular2](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/swirlycheetah/generator-angular2?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A [Yeoman](http://yeoman.io) Generator to aid in bootstrapping an Angular2 application.
 
