@@ -36,6 +36,7 @@
     "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "npm-check": "^3.2.10"
   }
 }
