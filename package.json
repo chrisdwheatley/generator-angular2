@@ -31,12 +31,12 @@
   ],
   "preferGlobal": true,
   "dependencies": {
-    "yeoman-generator": "^0.18.9",
     "chalk": "^1.0.0",
+    "npm-check": "^3.2.10",
+    "yeoman-generator": "^0.18.9",
     "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "mocha": "*",
-    "npm-check": "^3.2.10"
+    "mocha": "*"
   }
 }
