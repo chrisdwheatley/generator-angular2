@@ -22,10 +22,6 @@ yo angular2
 
 You'll be prompted to start the server once the generator has finished.
 
-```bash
-gulp serve
-```
-
 You'll then be able to access the application at `http://localhost:8000`. Serving the application can be configured in the `gulpfile.js` using [gulp-webserver](https://www.npmjs.com/package/gulp-webserver) options.
 
 ### Developing
