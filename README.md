@@ -26,7 +26,7 @@ You'll then be able to access the application at `http://localhost:8000`. Servin
 
 ### Developing
 
-All contibutions are more than welcome, no matter how large or small.
+All contributions are more than welcome, no matter how large or small.
 
 ### License
 
