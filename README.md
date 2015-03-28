@@ -28,6 +28,24 @@ You'll then be able to access the application at `http://localhost:8000`. Servin
 
 All contributions are more than welcome, no matter how large or small.
 
+Clone the repository and `cd` into it
+
+`git clone foo && cd generator-angular2`
+
+Install the project dependencies
+
+`npm install`
+
+Link the package to use the version you're working on
+
+`npm link`
+
+Run the tests to ensure no failures
+
+`npm run test`
+
+Submit a pull request with your changes
+
 ### License
 
 Released under the MIT license: [opensource.org/licenses/MIT](http://opensource.org/licenses/MIT)
