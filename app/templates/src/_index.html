@@ -10,14 +10,19 @@
 
     <<%= _.slugify(appname) %>>Loading...</<%= _.slugify(appname) %>>
 
-    <script src="lib/dist/es6-shim.js"></script>
+    <script src="lib/system.js"></script>
+    <script src="lib/zone.js"></script>
 
     <script>
-      System.paths = {
-        'angular2/*':'lib/angular2/*.js',
-        'rtts_assert/*': 'lib/rtts_assert/*.js',
-        'index': 'index.js'
-      };
+      System.config({
+        baseURL: 'lib/',
+        paths: {
+          'angular2/*': 'angular2.js',
+          'rx/dist/rx.all': 'rx.all.js',
+          'index': '../index.js'
+        }
+      });
+
       System.import('index').then(function(module) {
         module.main();
       }, console.log.bind(console));
