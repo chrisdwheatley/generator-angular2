@@ -7,26 +7,30 @@ var path = require('path');
 var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
-  constructor: function () {
+  constructor: function() {
     yeoman.generators.Base.apply(this, arguments);
     // add option to skip install
     this.option('skip-install');
-    this.argument('appname', { type: String, required: false });
+    this.argument('appname', {
+      type: String,
+      required: false
+    });
     this.appname = this.appname || path.basename(process.cwd());
   },
 
-  prompting: function () {
+  prompting: function() {
     // Yeoman greeting
     this.log(yosay(
-      'Yo! I\'m here to help build your '+
+      'Yo! I\'m here to help build your ' +
       chalk.bold.yellow('Angular2') +
       ' application.'
     ));
   },
 
   writing: {
-    app: function () {
-      this.basicTemplate = 'src/' + this._.slugify(this.appname) + '.html';
+    app: function() {
+      this.basicTemplate = 'src/' + this._.slugify(this.appname) +
+        '.html';
 
       this.copy('_package.json', 'package.json');
       this.copy('_gulpfile.js', 'gulpfile.js');
@@ -41,7 +45,7 @@ module.exports = yeoman.generators.Base.extend({
     }
   },
 
-  install: function () {
+  install: function() {
     this.installDependencies({
       skipInstall: this.options['skip-install'],
       bower: false,
@@ -59,12 +63,12 @@ module.exports = yeoman.generators.Base.extend({
         }
         return 'gulp';
       }).then(function(gulpCommand) {
-        this.spawnCommand(gulpCommand).on('close', function () {
+        this.spawnCommand(gulpCommand).on('close', function() {
           this.log('');
           this.log('');
           this.log('Setup complete, run ' +
-                   chalk.bold.yellow(gulpCommand + ' serve') +
-                   ' to start serving the application.');
+            chalk.bold.yellow(gulpCommand + ' serve') +
+            ' to start serving the application.');
           this.log('');
         }.bind(this));
       }.bind(this));
