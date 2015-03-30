@@ -67,8 +67,9 @@ module.exports = yeoman.generators.Base.extend({
           this.log('');
           this.log('');
           this.log('Setup complete, run ' +
-            chalk.bold.yellow(gulpCommand + ' serve') +
-            ' to start serving the application.');
+            chalk.bold.yellow(gulpCommand + ' dev') +
+            ' to start serving the application' +
+            ' (it\'ll also start watching for any changes you make).');
           this.log('');
         }.bind(this));
       }.bind(this));
