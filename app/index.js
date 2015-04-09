@@ -29,8 +29,7 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function() {
-      this.basicTemplate = 'src/' + this._.slugify(this.appname) +
-        '.html';
+      this.basicTemplate = 'src/' + this._.slugify(this.appname);
 
       this.copy('_package.json', 'package.json');
       this.copy('_gulpfile.js', 'gulpfile.js');
@@ -41,7 +40,8 @@ module.exports = yeoman.generators.Base.extend({
       this.mkdir('src');
       this.copy('src/_index.js', 'src/index.js');
       this.copy('src/_index.html', 'src/index.html');
-      this.copy('src/_basic-template.html', this.basicTemplate);
+      this.copy('src/_basic-template.html', this.basicTemplate + '.html');
+      this.copy('src/_basic-template.js', this.basicTemplate + '.js');
     }
   },
 
