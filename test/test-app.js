@@ -83,9 +83,7 @@ describe('when angular2 generator generates', function() {
 
       it('should create the dynamically named files named correctly', function() {
         assert.file([
-          'src/caseNamed.js',
           'src/casenamed.js',
-          'src/caseNamed.html',
           'src/casenamed.html'
         ]);
       });
@@ -149,9 +147,7 @@ describe('when angular2 generator generates', function() {
 
       it('should create the dynamically named files named correctly', function() {
         assert.file([
-          'src/casedName.js',
           'src/casedname.js',
-          'src/casedName.html',
           'src/casedname.html'
         ]);
       });
