@@ -8,24 +8,21 @@
   </head>
   <body>
 
-    <<%= _.slugify(appname) %>>Loading...</<%= _.slugify(appname) %>>
+    <main>Loading...</main>
 
     <script src="lib/system.js"></script>
     <script src="lib/zone.js"></script>
 
     <script>
       System.config({
-        baseURL: 'lib/',
         paths: {
-          'angular2/*': 'angular2.js',
-          'rx/dist/rx.all': 'rx.all.js',
-          'index': '../index.js'
+          'angular2/*': 'lib/angular2.js',
+          'rx/dist/rx.all': 'lib/rx.all.js',
+          'index': 'index.js'
         }
       });
 
-      System.import('index').then(function(module) {
-        module.main();
-      }, console.log.bind(console));
+      System.import('index');
     </script>
 
   </body>

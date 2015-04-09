@@ -1,22 +1,19 @@
 import {Component, Template, bootstrap} from 'angular2/angular2';
-import {bind} from 'angular2/di';
+import {<%= _.classify(appname) %>} from '<%= _.slugify(appname) %>';
 
 @Component({
-  selector: '<%= _.slugify(appname) %>'
+  selector: 'main'
 })
 
 @Template({
-  url: '<%= _.slugify(appname) %>.html'
+  directives: [<%= _.classify(appname) %>],
+  inline: `
+    <<%= _.slugify(appname) %>></<%= _.slugify(appname) %>>
+  `
 })
 
-class <%= _.classify(appname) %> {
-
-  constructor() {
-    console.log('component mounted');
-  }
+class Main {
 
 }
 
-export function main() {
-  bootstrap(<%= _.classify(appname) %>);
-}
+bootstrap(Main);
