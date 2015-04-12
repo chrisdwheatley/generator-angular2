@@ -28,7 +28,7 @@ All contributions are more than welcome, no matter how large or small.
 
 Clone the repository and `cd` into it
 
-`git clone foo && cd generator-angular2`
+`git clone git@github.com:swirlycheetah/generator-angular2.git && cd generator-angular2`
 
 Install the project dependencies
 
