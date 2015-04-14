@@ -1,13 +1,13 @@
-import {Component, Template, bootstrap} from 'angular2/angular2';
+import {Component, View, bootstrap} from 'angular2/angular2';
 import {<%= _.classify(appname) %>} from '<%= _.slugify(appname) %>';
 
 @Component({
   selector: 'main'
 })
 
-@Template({
+@View({
   directives: [<%= _.classify(appname) %>],
-  inline: `
+  template: `
     <<%= _.slugify(appname) %>></<%= _.slugify(appname) %>>
   `
 })
