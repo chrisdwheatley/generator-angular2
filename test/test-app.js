@@ -1,9 +1,9 @@
 'use strict';
 
-var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
-var os = require('os');
+var path = require('path'),
+  assert = require('yeoman-generator').assert,
+  helpers = require('yeoman-generator').test,
+  os = require('os');
 
 describe('when angular2 generator generates', function () {
 
@@ -83,8 +83,8 @@ describe('when angular2 generator generates', function () {
 
       it('should create the dynamically named files named correctly', function () {
         assert.file([
-          'src/casenamed.js',
-          'src/casenamed.html'
+          'src/case-named.js',
+          'src/case-named.html'
         ]);
       });
     });
@@ -147,8 +147,8 @@ describe('when angular2 generator generates', function () {
 
       it('should create the dynamically named files named correctly', function () {
         assert.file([
-          'src/casedname.js',
-          'src/casedname.html'
+          'src/cased-name.js',
+          'src/cased-name.html'
         ]);
       });
     });

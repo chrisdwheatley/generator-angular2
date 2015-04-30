@@ -12,14 +12,14 @@ module.exports = yeoman.generators.Base.extend({
     yeoman.generators.Base.apply(this, arguments);
     // add option to skip install
     this.option('skip-install');
-    this.argument('appName', {
+    this.argument('appname', {
       type: String,
       required: false
     });
-    var appName = this.appName || path.basename(process.cwd());
-    this.appName = l.kebabCase(appName);
-    this.moduleName = l.snakeCase(appName);
-    this.className = l.capitalize(l.camelCase(appName));
+    var appName = this.appname || path.basename(process.cwd());
+    this.appname = l.kebabCase(appName);
+    this.modulename = l.snakeCase(appName);
+    this.classname = l.capitalize(l.camelCase(appName));
   },
 
   prompting: function () {
