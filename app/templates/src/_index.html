@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= _.capitalize(_.humanize(appname)) %></title>
+    <title><%= appName %></title>
   </head>
   <body>
 
@@ -17,6 +17,7 @@
       System.config({
         paths: {
           'angular2/*': 'lib/angular2.js',
+          'traceur-runtime': 'lib/traceur-runtime.js',
           'rx/dist/rx.all': 'lib/rx.all.js',
           'index': 'index.js'
         }

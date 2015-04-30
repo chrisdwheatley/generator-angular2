@@ -1,17 +1,17 @@
 import {Component, View} from 'angular2/angular2';
 
 @Component({
-  selector: '<%= _.slugify(appname) %>'
+  selector: '<%= appName %>'
 })
 
 @View({
-  templateUrl: '<%= _.slugify(appname) %>.html'
+  templateUrl: '<%= appName %>.html'
 })
 
-export class <%= _.classify(appname) %> {
+export class <%= className %> {
 
   constructor() {
-    console.info('<%= _.classify(appname) %> Component Mounted Successfully');
+    console.info('<%= className %> Component Mounted Successfully');
   }
 
 }
