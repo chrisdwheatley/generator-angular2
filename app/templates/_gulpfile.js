@@ -1,9 +1,9 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var shell = require('gulp-shell');
-var traceur = require('gulp-traceur');
-var webserver = require('gulp-webserver');
+var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    rename = require('gulp-rename'),
+    shell = require('gulp-shell'),
+    traceur = require('gulp-traceur'),
+    webserver = require('gulp-webserver');
 
 // run init tasks
 gulp.task('default', ['dependencies', 'angular2', 'js', 'html', 'css']);
@@ -12,7 +12,7 @@ gulp.task('default', ['dependencies', 'angular2', 'js', 'html', 'css']);
 gulp.task('dev', ['watch', 'serve']);
 
 // serve the build dir
-gulp.task('serve', function() {
+gulp.task('serve', function () {
   gulp.src('build')
     .pipe(webserver({
       open: true
@@ -20,37 +20,37 @@ gulp.task('serve', function() {
 });
 
 // watch for changes and run the relevant task
-gulp.task('watch', function() {
+gulp.task('watch', function () {
   gulp.watch('src/**/*.js', ['js']);
   gulp.watch('src/**/*.html', ['html']);
   gulp.watch('src/**/*.css', ['css']);
 });
 
 // move dependencies into build dir
-gulp.task('dependencies', function() {
+gulp.task('dependencies', function () {
   return gulp.src([
-      'node_modules/angular2/node_modules/rx/dist/rx.all.js',
-      'node_modules/angular2/node_modules/traceur/bin/traceur.js',
-      'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
-      'node_modules/angular2/node_modules/zone.js/zone.js',
-      'node_modules/es6-module-loader/dist/es6-module-loader.js',
-      'node_modules/es6-module-loader/dist/es6-module-loader.js.map',
-      'node_modules/systemjs/dist/system.js',
-      'node_modules/systemjs/dist/system.js.map'
-    ])
+    'node_modules/angular2/node_modules/rx/dist/rx.all.js',
+    'node_modules/angular2/node_modules/traceur/bin/traceur.js',
+    'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
+    'node_modules/angular2/node_modules/zone.js/zone.js',
+    'node_modules/es6-module-loader/dist/es6-module-loader.js',
+    'node_modules/es6-module-loader/dist/es6-module-loader.js.map',
+    'node_modules/systemjs/dist/system.js',
+    'node_modules/systemjs/dist/system.js.map'
+  ])
     .pipe(gulp.dest('build/lib'));
 });
 
 // tanspile, concat & move angular
-gulp.task('angular2', function() {
+gulp.task('angular2', function () {
   return gulp.src([
-      traceur.RUNTIME_PATH,
-      'node_modules/angular2/es6/prod/*.es6',
-      'node_modules/angular2/es6/prod/src/**/*.es6'
-    ], {
-      base: 'node_modules/angular2/es6/prod'
-    })
-    .pipe(rename(function(path) {
+    traceur.RUNTIME_PATH,
+    'node_modules/angular2/es6/prod/*.es6',
+    'node_modules/angular2/es6/prod/src/**/*.es6'
+  ], {
+    base: 'node_modules/angular2/es6/prod'
+  })
+    .pipe(rename(function (path) {
       path.dirname = 'angular2/' + path.dirname;
       path.extname = '';
     }))
@@ -63,7 +63,7 @@ gulp.task('angular2', function() {
 });
 
 // transpile & move js
-gulp.task('js', function() {
+gulp.task('js', function () {
   return gulp.src('src/**/*.js')
     .pipe(rename({
       extname: ''
@@ -81,13 +81,13 @@ gulp.task('js', function() {
 });
 
 // move html
-gulp.task('html', function() {
+gulp.task('html', function () {
   return gulp.src('src/**/*.html')
     .pipe(gulp.dest('build'))
 });
 
 // move css
-gulp.task('css', function() {
+gulp.task('css', function () {
   return gulp.src('src/**/*.css')
     .pipe(gulp.dest('build'))
 });

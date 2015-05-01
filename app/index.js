@@ -1,13 +1,14 @@
 'use strict';
 
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var npmCheck = require('npm-check');
-var path = require('path');
-var yosay = require('yosay');
+var yeoman = require('yeoman-generator'),
+    chalk = require('chalk'),
+    npmCheck = require('npm-check'),
+    path = require('path'),
+    yosay = require('yosay'),
+    l = require('lodash');
 
 module.exports = yeoman.generators.Base.extend({
-  constructor: function() {
+  constructor: function () {
     yeoman.generators.Base.apply(this, arguments);
     // add option to skip install
     this.option('skip-install');
@@ -15,10 +16,13 @@ module.exports = yeoman.generators.Base.extend({
       type: String,
       required: false
     });
-    this.appname = this.appname || path.basename(process.cwd());
+    var appName = this.appname || path.basename(process.cwd());
+    this.appname = l.kebabCase(appName);
+    this.modulename = l.snakeCase(appName);
+    this.classname = l.capitalize(l.camelCase(appName));
   },
 
-  prompting: function() {
+  prompting: function () {
     // Yeoman greeting
     this.log(yosay(
       'Yo! I\'m here to help build your ' +
@@ -28,8 +32,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: {
-    app: function() {
-      this.basicTemplate = 'src/' + this._.slugify(this.appname);
+    app: function () {
+      this.basicTemplate = 'src/' + l.kebabCase(this.appname);
 
       this.copy('_package.json', 'package.json');
       this.copy('_gulpfile.js', 'gulpfile.js');
@@ -37,7 +41,6 @@ module.exports = yeoman.generators.Base.extend({
       this.copy('_editorconfig', '.editorconfig');
       this.copy('_gitignore', '.gitignore');
 
-      this.mkdir('src');
       this.copy('src/_index.js', 'src/index.js');
       this.copy('src/_index.html', 'src/index.html');
       this.copy('src/_basic-template.html', this.basicTemplate + '.html');
@@ -45,25 +48,25 @@ module.exports = yeoman.generators.Base.extend({
     }
   },
 
-  install: function() {
+  install: function () {
     this.installDependencies({
       skipInstall: this.options['skip-install'],
       bower: false,
-      callback: function() {
+      callback: function () {
         this.emit('dependenciesInstalled');
       }.bind(this)
     });
 
-    this.on('dependenciesInstalled', function() {
+    this.on('dependenciesInstalled', function () {
       npmCheck({
         global: true
-      }).then(function(globalPackages) {
+      }).then(function (globalPackages) {
         if (!globalPackages.gulp) {
           return './node_modules/.bin/gulp';
         }
         return 'gulp';
-      }).then(function(gulpCommand) {
-        this.spawnCommand(gulpCommand).on('close', function() {
+      }).then(function (gulpCommand) {
+        this.spawnCommand(gulpCommand).on('close', function () {
           this.log('');
           this.log('');
           this.log('Setup complete, run ' +
