@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/angular2';
+import {ComponentAnnotation as Component, ViewAnnotation as View} from 'angular2/angular2';
 
 @Component({
   selector: '<%= appname %>'

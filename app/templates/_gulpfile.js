@@ -29,12 +29,13 @@ gulp.task('watch', function () {
 // move dependencies into build dir
 gulp.task('dependencies', function () {
   return gulp.src([
-    'node_modules/angular2/node_modules/rx/dist/rx.all.js',
+    'node_modules/angular2/node_modules/rx/dist/rx.js',
     'node_modules/angular2/node_modules/traceur/bin/traceur.js',
     'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
-    'node_modules/angular2/node_modules/zone.js/zone.js',
+    'node_modules/angular2/node_modules/zone.js/dist/zone.js',
     'node_modules/es6-module-loader/dist/es6-module-loader.js',
     'node_modules/es6-module-loader/dist/es6-module-loader.js.map',
+    'node_modules/reflect-metadata/Reflect.js',
     'node_modules/systemjs/dist/system.js',
     'node_modules/systemjs/dist/system.js.map'
   ])
