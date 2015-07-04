@@ -46,8 +46,9 @@ gulp.task('dependencies', function () {
 gulp.task('angular2', function () {
   return gulp.src([
     traceur.RUNTIME_PATH,
-    'node_modules/angular2/es6/prod/*.es6',
-    'node_modules/angular2/es6/prod/src/**/*.es6'
+    'node_modules/angular2/es6/prod/*.js',
+    '!node_modules/angular2/es6/prod/es5build.js',
+    'node_modules/angular2/es6/prod/src/**/*.js'
   ], {
     base: 'node_modules/angular2/es6/prod'
   })
