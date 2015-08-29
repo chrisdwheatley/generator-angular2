@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver');
 
 // run init tasks
-gulp.task('default', ['dependencies', 'angular2', 'js', 'html', 'css']);
+gulp.task('default', ['dependencies', 'js', 'html', 'css']);
 
 // run development task
 gulp.task('dev', ['watch', 'serve']);
@@ -29,38 +29,12 @@ gulp.task('watch', function () {
 // move dependencies into build dir
 gulp.task('dependencies', function () {
   return gulp.src([
-    'node_modules/angular2/node_modules/rx/dist/rx.js',
-    'node_modules/angular2/node_modules/traceur/bin/traceur.js',
-    'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
-    'node_modules/angular2/node_modules/zone.js/dist/zone.js',
-    'node_modules/es6-module-loader/dist/es6-module-loader.js',
-    'node_modules/es6-module-loader/dist/es6-module-loader.js.map',
-    'node_modules/reflect-metadata/Reflect.js',
+    'node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js',
+    'node_modules/systemjs/dist/system-csp-production.src.js',
     'node_modules/systemjs/dist/system.js',
-    'node_modules/systemjs/dist/system.js.map'
+    'node_modules/reflect-metadata/Reflect.js',
+    'node_modules/angular2/bundles/angular2.js'
   ])
-    .pipe(gulp.dest('build/lib'));
-});
-
-// tanspile, concat & move angular
-gulp.task('angular2', function () {
-  return gulp.src([
-    traceur.RUNTIME_PATH,
-    'node_modules/angular2/es6/prod/*.js',
-    '!node_modules/angular2/es6/prod/es5build.js',
-    'node_modules/angular2/es6/prod/src/**/*.js'
-  ], {
-    base: 'node_modules/angular2/es6/prod'
-  })
-    .pipe(rename(function (path) {
-      path.dirname = 'angular2/' + path.dirname;
-      path.extname = '';
-    }))
-    .pipe(traceur({
-      modules: 'instantiate',
-      moduleName: true
-    }))
-    .pipe(concat('angular2.js'))
     .pipe(gulp.dest('build/lib'));
 });
 
@@ -74,7 +48,8 @@ gulp.task('js', function () {
       modules: 'instantiate',
       moduleName: true,
       annotations: true,
-      types: true
+      types: true,
+      memberVariables: true
     }))
     .pipe(rename({
       extname: '.js'
