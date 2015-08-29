@@ -2,10 +2,9 @@
   "name": "<%= appname %>",
   "version": "0.0.0",
   "dependencies": {
-    "angular2": "2.0.0-alpha.29",
-    "es6-module-loader": "0.16.6",
+    "angular2": "2.0.0-alpha.35",
     "reflect-metadata": "0.1.0",
-    "systemjs": "0.16.11"
+    "systemjs": "0.18.4"
   },
   "devDependencies": {
     "gulp": "3.8.11",

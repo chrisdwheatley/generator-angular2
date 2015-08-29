@@ -10,21 +10,18 @@
 
     <main>Loading...</main>
 
-    <script src="lib/system.js"></script>
-    <script src="lib/zone.js"></script>
+    <script src="lib/traceur-runtime.js"></script>
+    <script src="lib/system-csp-production.src.js"></script>
     <script src="lib/Reflect.js"></script>
 
     <script>
-      System.config({
-        paths: {
-          'angular2/*': 'lib/angular2.js',
-          'traceur-runtime': 'lib/traceur-runtime.js',
-          'rx': 'lib/rx.js',
-          'index': 'index.js'
-        }
-      });
+      System.config({defaultJSExtensions: true});
+    </script>
 
-      System.import('index');
+    <script src="lib/angular2.js"></script>
+
+    <script>
+      System.import('index').catch(console.log.bind(console));
     </script>
 
   </body>
