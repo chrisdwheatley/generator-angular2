@@ -22,6 +22,23 @@ You'll be prompted to start the server once the generator has finished.
 
 You'll then be able to access the application at `http://localhost:8000`. Serving the application can be configured in the `gulpfile.js` using [gulp-webserver](https://www.npmjs.com/package/gulp-webserver) options.
 
+### Generated Structure
+
+The structure generated is;
+
+```
+- src
+	- index.js
+	- index.html
+	- {generated-file-name}.js
+	- {generated-file-name}.html
+- .editorconfig 
+- .gitignore
+- gulpfile.js
+- package.json
+- readme.md
+```
+
 ### Developing
 
 All contributions are more than welcome, no matter how large or small.
