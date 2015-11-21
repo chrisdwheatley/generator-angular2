@@ -1,4 +1,4 @@
-import {ComponentMetadata as Component, ViewMetadata as View, bootstrap} from 'angular2/angular2';
+import {Component, View, bootstrap} from 'angular2/angular2';
 import {<%= classname %>} from '<%= appname %>';
 
 @Component({
