@@ -2,7 +2,6 @@
 
 var yeoman = require('yeoman-generator'),
     chalk = require('chalk'),
-    npmCheck = require('npm-check'),
     path = require('path'),
     yosay = require('yosay'),
     l = require('lodash');
@@ -58,25 +57,15 @@ module.exports = yeoman.generators.Base.extend({
     });
 
     this.on('dependenciesInstalled', function () {
-      npmCheck({
-        global: true
-      }).then(function (globalPackages) {
-        if (!globalPackages.gulp) {
-          return './node_modules/.bin/gulp';
-        }
-        return 'gulp';
-      }).then(function (gulpCommand) {
-        this.spawnCommand(gulpCommand).on('close', function () {
-          this.log('');
-          this.log('');
-          this.log('Setup complete, run ' +
-            chalk.bold.yellow(gulpCommand + ' dev') +
-            ' to start serving the application' +
-            ' (it\'ll also start watching for any changes you make).');
-          this.log('');
-        }.bind(this));
+      this.spawnCommand('./node_modules/.bin/gulp').on('close', function () {
+        this.log('');
+        this.log('');
+        this.log('Setup complete, run ' +
+          chalk.bold.yellow('npm start') +
+          ' to start serving the application' +
+          ' (it\'ll also start watching for any changes you make).');
+        this.log('');
       }.bind(this));
-
     }.bind(this));
 
   }
