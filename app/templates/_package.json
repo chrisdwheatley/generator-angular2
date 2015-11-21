@@ -2,7 +2,7 @@
   "name": "<%= appname %>",
   "version": "0.0.0",
   "dependencies": {
-    "angular2": "2.0.0-alpha.36",
+    "angular2": "2.0.0-alpha.46",
     "reflect-metadata": "0.1.1",
     "systemjs": "0.18.17"
   },
