@@ -1,7 +1,5 @@
 var gulp = require('gulp'),
-    concat = require('gulp-concat'),
     rename = require('gulp-rename'),
-    shell = require('gulp-shell'),
     traceur = require('gulp-traceur'),
     webserver = require('gulp-webserver');
 
