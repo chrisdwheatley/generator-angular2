@@ -1,10 +1,10 @@
 'use strict';
 
-var yeoman = require('yeoman-generator'),
-    chalk = require('chalk'),
-    path = require('path'),
-    yosay = require('yosay'),
-    l = require('lodash');
+var chalk = require('chalk');
+var lodash = require('lodash');
+var path = require('path');
+var yeoman = require('yeoman-generator');
+var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
   constructor: function () {
@@ -16,13 +16,13 @@ module.exports = yeoman.generators.Base.extend({
       required: false
     });
     var appName = this.appname || path.basename(process.cwd());
-    this.appname = l.kebabCase(appName);
-    this.modulename = l.snakeCase(appName);
-    this.classname = l.capitalize(l.camelCase(appName));
+    this.appname = lodash.kebabCase(appName);
+    this.modulename = lodash.snakeCase(appName);
+    this.classname = lodash.capitalize(lodash.camelCase(appName));
   },
 
   prompting: function () {
-    // Yeoman greeting
+    // yeoman greeting
     this.log(yosay(
       'Yo! I\'m here to help build your ' +
       chalk.bold.yellow('Angular2') +
@@ -32,7 +32,7 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.basicTemplate = 'src/' + l.kebabCase(this.appname);
+      this.basicTemplate = 'src/' + lodash.kebabCase(this.appname);
 
       this.copy('_package.json', 'package.json');
       this.copy('_gulpfile.js', 'gulpfile.js');
