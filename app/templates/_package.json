@@ -8,7 +8,8 @@
   "dependencies": {
     "angular2": "2.0.0-alpha.46",
     "reflect-metadata": "0.1.1",
-    "systemjs": "0.18.17"
+    "systemjs": "0.18.17",
+    "traceur": "0.0.92"
   },
   "devDependencies": {
     "gulp": "3.9.0",
