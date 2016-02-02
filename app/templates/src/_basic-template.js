@@ -1,4 +1,4 @@
-import {ComponentMetadata as Component, ViewMetadata as View} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
 
 @Component({
   selector: '<%= appname %>'
