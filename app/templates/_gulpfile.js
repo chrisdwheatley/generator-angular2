@@ -31,7 +31,11 @@ gulp.task('dependencies', function () {
     'node_modules/systemjs/dist/system-csp-production.src.js',
     'node_modules/systemjs/dist/system.js',
     'node_modules/reflect-metadata/Reflect.js',
-    'node_modules/angular2/bundles/angular2.js'
+    'node_modules/angular2/bundles/angular2.js',
+    'node_modules/angular2/bundles/angular2-polyfills.js',
+    'node_modules/rxjs/bundles/Rx.js',
+    'node_modules/es6-shim/es6-shim.min.js',
+    'node_modules/es6-shim/es6-shim.map'
   ])
     .pipe(gulp.dest('build/lib'));
 });
