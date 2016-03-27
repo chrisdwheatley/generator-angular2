@@ -1,7 +1,7 @@
 'use strict';
 
 var chalk = require('chalk');
-var lodash = require('lodash');
+var _ = require('lodash');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
@@ -16,9 +16,9 @@ module.exports = yeoman.generators.Base.extend({
       required: false
     });
     var appName = this.appname || path.basename(process.cwd());
-    this.appname = lodash.kebabCase(appName);
-    this.modulename = lodash.snakeCase(appName);
-    this.classname = lodash.capitalize(lodash.camelCase(appName));
+    this.appname = _.kebabCase(appName);
+    this.modulename = _.snakeCase(appName);
+    this.classname = _.capitalize(_.camelCase(appName));
   },
 
   prompting: function () {
@@ -32,7 +32,7 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.basicTemplate = 'src/' + lodash.kebabCase(this.appname);
+      this.basicTemplate = 'src/' + _.kebabCase(this.appname);
 
       this.copy('_package.json', 'package.json');
       this.copy('_gulpfile.js', 'gulpfile.js');
