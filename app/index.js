@@ -6,9 +6,9 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
   constructor: function () {
-    yeoman.generators.Base.apply(this, arguments);
+    yeoman.Base.apply(this, arguments);
     // add option to skip install
     this.option('skip-install');
     this.argument('appname', {
