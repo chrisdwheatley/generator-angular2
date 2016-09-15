@@ -13,7 +13,8 @@ gulp.task('dev', ['watch', 'serve']);
 gulp.task('serve', function () {
   gulp.src('build')
     .pipe(webserver({
-      open: true
+      livereload: true,
+      open: true,
     }));
 });
 
@@ -35,7 +36,7 @@ gulp.task('dependencies', function () {
     'node_modules/angular2/bundles/angular2-polyfills.js',
     'node_modules/rxjs/bundles/Rx.js',
     'node_modules/es6-shim/es6-shim.min.js',
-    'node_modules/es6-shim/es6-shim.map'
+    'node_modules/es6-shim/es6-shim.map',
   ])
     .pipe(gulp.dest('build/lib'));
 });
@@ -44,17 +45,17 @@ gulp.task('dependencies', function () {
 gulp.task('js', function () {
   return gulp.src('src/**/*.js')
     .pipe(rename({
-      extname: ''
+      extname: '',
     }))
     .pipe(traceur({
       modules: 'instantiate',
       moduleName: true,
       annotations: true,
       types: true,
-      memberVariables: true
+      memberVariables: true,
     }))
     .pipe(rename({
-      extname: '.js'
+      extname: '.js',
     }))
     .pipe(gulp.dest('build'));
 });
@@ -62,11 +63,11 @@ gulp.task('js', function () {
 // move html
 gulp.task('html', function () {
   return gulp.src('src/**/*.html')
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('build'));
 });
 
 // move css
 gulp.task('css', function () {
   return gulp.src('src/**/*.css')
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('build'));
 });
