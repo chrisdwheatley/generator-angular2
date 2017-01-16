@@ -6,13 +6,13 @@ A [Yeoman](http://yeoman.io) Generator to aid in bootstrapping an Angular2 appli
 
 ### Getting Started
 
-Install both [Yeoman](http://yeoman.io) and this generator globally.
+Install [Yeoman](http://yeoman.io), [Gulp](http://gulpjs.com/) (for the build process and development server), and this generator globally.
 
 ```bash
-npm install -g yo generator-angular2
+npm install -g yo gulp generator-angular2
 ```
 
-In your desired project folder run the generator.
+Run the generator in your desired project folder.
 
 ```bash
 yo angular2
